@@ -105,34 +105,34 @@ function _reload(path) {
       $(tmpl("template-listing", file)).data(file).appendTo("#listing");
     }
 
-    $(".edit").editable(function (value, settings) {
-      var name = $(this).parent().parent().data("name");
-      if (value != name) {
-        var path = $(this).parent().parent().data("path");
-        $.ajax({
-          url: 'move',
-          type: 'POST',
-          data: { oldPath: path, newPath: _path + value },
-          dataType: 'json'
-        }).fail(function (jqXHR, textStatus, errorThrown) {
-          _showError("Failed moving \"" + path + "\" to \"" + _path + value + "\"", textStatus, errorThrown);
-        }).always(function () {
-          _reload(_path);
-        });
-      }
-      return value;
-    }, {
-      onedit: function (settings, original) {
-        _disableReloads();
-      },
-      onsubmit: function (settings, original) {
-        _enableReloads();
-      },
-      onreset: function (settings, original) {
-        _enableReloads();
-      },
-      tooltip: 'Click to rename...'
-    });
+    // $(".edit").editable(function (value, settings) {
+    //   var name = $(this).parent().parent().data("name");
+    //   if (value != name) {
+    //     var path = $(this).parent().parent().data("path");
+    //     $.ajax({
+    //       url: 'move',
+    //       type: 'POST',
+    //       data: { oldPath: path, newPath: _path + value },
+    //       dataType: 'json'
+    //     }).fail(function (jqXHR, textStatus, errorThrown) {
+    //       _showError("Failed moving \"" + path + "\" to \"" + _path + value + "\"", textStatus, errorThrown);
+    //     }).always(function () {
+    //       _reload(_path);
+    //     });
+    //   }
+    //   return value;
+    // }, {
+    //   onedit: function (settings, original) {
+    //     _disableReloads();
+    //   },
+    //   onsubmit: function (settings, original) {
+    //     _enableReloads();
+    //   },
+    //   onreset: function (settings, original) {
+    //     _enableReloads();
+    //   },
+    //   tooltip: 'Click to rename...'
+    // });
 
     $(".button-download").click(function (event) {
       var path = $(this).parent().parent().data("path");
