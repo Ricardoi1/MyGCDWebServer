@@ -257,7 +257,7 @@ $(document).ready(function() {
   });
   
   $("#create-folder").click(function(event) {
-    $("#create-input").val("Untitled folder");
+    $("#create-input").val("未命名");
     $("#create-modal").modal("show");
   });
   
