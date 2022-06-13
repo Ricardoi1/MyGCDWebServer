@@ -268,7 +268,10 @@ $(document).ready(function () {
   $("#create-confirm").click(function (event) {
     $("#create-modal").modal("hide");
     var name = $("#create-input").val();
-
+      if (name.length > 15) {
+        _showError("不能超过15个字符", "", "错误");
+        return;
+      }
     if (name != "") {
       $.ajax({
         url: 'create',
