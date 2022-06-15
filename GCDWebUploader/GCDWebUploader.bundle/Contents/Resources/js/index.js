@@ -49,6 +49,14 @@ function _showError(message, textStatus, errorThrown) {
   }));
 }
 
+function _showOffline(message, textStatus, errorThrown) {
+  $("#alerts").prepend(tmpl("template-alert", {
+    level: "danger",
+    title: (errorThrown != "" ? errorThrown : textStatus) + ": ",
+    description: message
+  }));
+}
+
 function _disableReloads() {
   _reloadingDisabled += 1;
 }
@@ -76,7 +84,7 @@ function _reload(path) {
     data: { path: path },
     dataType: 'json'
   }).fail(function (jqXHR, textStatus, errorThrown) {
-    _showError("Failed retrieving contents of \"" + path + "\"", textStatus, errorThrown);
+    jqXHR.status <= 0 ? _showError("与App连接失败，请确保App打开「导入书籍」页面", textStatus, "网络错误") : _showError("内容检索失败 \"" + path + "\"", textStatus, errorThrown);
   }).done(function (data, textStatus, jqXHR) {
     var scrollPosition = $(document).scrollTop();
 
@@ -164,7 +172,7 @@ function _reload(path) {
         data: { path: path },
         dataType: 'json'
       }).fail(function (jqXHR, textStatus, errorThrown) {
-        _showError("Failed deleting \"" + path + "\"", textStatus, errorThrown);
+        _showError("删除 \"" + path + "\"失败", textStatus, errorThrown);
       }).always(function () {
         _reload(_path);
       });
@@ -235,7 +243,7 @@ $(document).ready(function () {
     fail: function (e, data) {
       var file = data.files[0];
       if (data.errorThrown != "abort") {
-        _showError("Failed uploading \"" + file.name + "\" to \"" + _path + "\"", data.textStatus, data.errorThrown);
+        _showError("上传 \"" + file.name + "\"失败", data.textStatus, data.errorThrown);
       }
     },
 
@@ -268,10 +276,10 @@ $(document).ready(function () {
   $("#create-confirm").click(function (event) {
     $("#create-modal").modal("hide");
     var name = $("#create-input").val();
-      if (name.length > 15) {
-        _showError("不能超过15个字符", "", "错误");
-        return;
-      }
+    if (name.length > 15) {
+      _showError("不能超过15个字符", "", "错误");
+      return;
+    }
     if (name != "") {
       $.ajax({
         url: 'create',
@@ -279,7 +287,7 @@ $(document).ready(function () {
         data: { path: _path + name },
         dataType: 'json'
       }).fail(function (jqXHR, textStatus, errorThrown) {
-        _showError("Failed creating folder \"" + name + "\" in \"" + _path + "\"", textStatus, errorThrown);
+        _showError("操作失败", textStatus, errorThrown);
       }).always(function () {
         _reload(_path);
       });
@@ -308,7 +316,7 @@ $(document).ready(function () {
         data: { oldPath: oldPath, newPath: newPath },
         dataType: 'json'
       }).fail(function (jqXHR, textStatus, errorThrown) {
-        _showError("Failed moving \"" + oldPath + "\" to \"" + newPath + "\"", textStatus, errorThrown);
+        _showError("操作失败", textStatus, errorThrown);
       }).always(function () {
         _reload(_path);
       });
