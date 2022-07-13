@@ -105,7 +105,8 @@
 
   <h1 class='title'>相关资源网站</h1>
   <h1 onClick=expand() class='expand'>
-    <div id='expand'>展开</div>
+    <div id='expand'>展开<img src="./down_arrow.png" style="width: 20px;height: 20px;padding-bottom: 3px;" alt="">
+    </div>
   </h1>
   <div id="third-party" class='link'></div>
 
@@ -235,10 +236,11 @@
     function expand() {
       if (document.getElementById('third-party').style.height == "470px") {
         document.getElementById('third-party').style.height = "1000px";
-        document.getElementById('expand').innerHTML = '收起';
+        document.getElementById('expand').innerHTML = "收起<img src='./up_arrow.png' style='width: 20px;height: 20px;padding-bottom: 3px;' alt=''>";
       } else {
         document.getElementById('third-party').style.height = "470px";
-        document.getElementById('expand').innerHTML = '展开';
+        document.getElementById('expand').innerHTML =
+          "展开<img src='./down_arrow.png' style='width: 20px;height: 20px;padding-bottom: 3px;' alt=''>";
       }
 
     }
