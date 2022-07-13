@@ -25,6 +25,68 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+.container {
+  left: 100px;
+  width: 65%;
+  position: absolute;
+}
+
+#third-party {
+  position: absolute;
+  right: 30px;
+  width: 23%;
+  height: 470px;
+  top: 100px;
+  overflow: scroll;
+  transition: 0.3s;
+}
+
+.title {
+  float: left;
+  font-size: 20px;
+  top: 50px;
+  position: absolute;
+  right: 250px;
+}
+
+.expand {
+  margin-left: 180px;
+  font-size: 20px;
+  top: 50px;
+  position: absolute;
+  right: 80px;
+
+}
+
+.expand :hover {
+  cursor: pointer;
+}
+
+.link a {
+  padding: 0px 0px 0px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.link img {
+  float: left;
+}
+
+.link .item {
+  height: 56px;
+  padding-top: 14px;
+  margin: 0 auto;
+  float: left;
+  align-items: center;
+}
+
+.link a:hover {
+  color: #c1a5a5;
+}
+
 .row-file {
   height: 40px;
 }
@@ -34,8 +96,7 @@
   text-align: center;
 }
 
-.column-name {
-}
+.column-name {}
 
 .column-size {
   width: 100px;
@@ -52,8 +113,7 @@
   text-align: center;
 }
 
-.column-path {  
-}
+.column-path {}
 
 .column-progress {
   width: 200px;
@@ -82,7 +142,8 @@
 /* Bootstrap overrides */
 
 .btn:focus {
-  outline: none;  /* FIXME: Work around for Chrome only but still draws focus ring while button pressed */
+  outline: none;
+  /* FIXME: Work around for Chrome only but still draws focus ring while button pressed */
 }
 
 .btn-toolbar {
@@ -96,7 +157,7 @@
   height: 16px;
 }
 
-.panel-default > .panel-heading {
+.panel-default>.panel-heading {
   color: #555;
 }
 
@@ -107,19 +168,19 @@
   padding: 0px;
 }
 
-.breadcrumb > .active {
+.breadcrumb>.active {
   color: #555;
 }
 
-.breadcrumb > li + li:before {
+.breadcrumb>li+li:before {
   color: #999;
 }
 
-.table > tbody > tr > td {
+.table>tbody>tr>td {
   vertical-align: middle;
 }
 
-.table > tbody > tr > td > p {
+.table>tbody>tr>td>p {
   margin: 0px;
 }
 

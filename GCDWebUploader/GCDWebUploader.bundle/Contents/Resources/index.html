@@ -52,6 +52,7 @@
     var _device = "%device%";
   </script>
   <script type="text/javascript" src="js/index.js"></script>
+
 </head>
 
 <body>
@@ -100,6 +101,13 @@
     <p class="footer">%footer%</p>
 
   </div>
+
+
+  <h1 class='title'>相关资源网站</h1>
+  <h1 onClick=expand() class='expand'>
+    <div id='expand'>展开</div>
+  </h1>
+  <div id="third-party" class='link'></div>
 
   <div class="modal fade" id="create-modal" tabindex="-1">
     <div class="modal-dialog">
@@ -205,6 +213,35 @@
       var div = document.getElementById("create-folder");
       div.style.visibility = _showCreateDir;
     };
+  </script>
+
+  <script>
+    var resourceList = ['https://zlib.shop/', 'http://zxcs.me/', 'http://www.ijjxs.com/', 'https://www.shudan.vip/', 'https://www.iyd.wang/', 'https://xmsoushu.com/#/', 'https://www.jiumodiary.com/', 'http://www.txtnovel.top/', 'https://www.werebook.com/', 'https://ebook2.lorefree.com/', 'https://kgbook.com/'];
+    var nameList = ['Zlibrary', '知轩藏书', '久久小说', '每日书单', '爱悦读', '熊猫搜索', '鸠摩搜索', '书香门第', '书堆阅读', 'lorefree', '苦瓜书盘'];
+    var iconList = ['', 'zxcs', 'jjxs', 'mrsd', '', 'xmss', 'jiumo', 'sxmd', 'sdyd', 'lorefree', ''];
+    window.onload = function () {
+      str = "<br>";
+
+      for (var i = 0; i < resourceList.length; ++i) {
+        str += "<div class = 'item'><img src = '../Resources/images/" + iconList[i] + ".png'><img></div>";
+        str += "<a href = " + resourceList[i] + " target = '_blank'>" + nameList[i] + '<br>' + resourceList[i] + "</a><br>";
+      }
+      // console.log(str);
+      // 获取元素，并修改
+      oUl = document.getElementById('third-party');
+      oUl.innerHTML = str;
+    }
+
+    function expand() {
+      if (document.getElementById('third-party').style.height == "470px") {
+        document.getElementById('third-party').style.height = "1000px";
+        document.getElementById('expand').innerHTML = '收起';
+      } else {
+        document.getElementById('third-party').style.height = "470px";
+        document.getElementById('expand').innerHTML = '展开';
+      }
+
+    }
   </script>
 
 </body>
