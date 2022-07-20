@@ -26,36 +26,33 @@
  */
 
 .container {
-  left: 100px;
+  left: 5%;
   width: 65%;
   position: absolute;
 }
 
-#third-party {
+.right_container {
+  left: 75%;
+  width: 300px;
   position: absolute;
-  right: 30px;
-  width: 23%;
+}
+
+#third_party {
   height: 470px;
-  top: 100px;
   overflow: scroll;
   transition: 0.3s;
 }
 
 .title {
-  float: left;
   font-size: 20px;
-  top: 50px;
-  position: absolute;
-  right: 250px;
+  display: inline-block;
+  padding-top: 20px;
 }
 
 .expand {
-  margin-left: 180px;
   font-size: 20px;
-  top: 50px;
-  position: absolute;
-  right: 80px;
-
+  top: 20px;
+  display: inline-block;
 }
 
 .expand :hover {
@@ -63,28 +60,25 @@
 }
 
 .link a {
-  padding-top: 10px;
-  position: relative;
-  top: 8px;
-  left: 10px;
   text-decoration: none;
   font-size: 15px;
   color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.link img {
-  width: 50px;
+  display: inline-block;
   height: 50px;
+  margin-top: 10px;
+  vertical-align: middle;
 }
 
 .link .item {
-  height: 56px;
-  padding-top: 14px;
-  margin: 0 auto;
-  float: left;
-  align-items: center;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+}
+
+.link img {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
 }
 
 .link a:hover {
