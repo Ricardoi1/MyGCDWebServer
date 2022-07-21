@@ -105,14 +105,16 @@
   <div class="right_container" style="display: inline-block;">
     <h1 class='title'>相关资源网站</h1>
     <div style="width: 100px;display: inline-block;"></div>
-    <h1 onClick=expand() id='expand' class="expand">
+    <!-- <h1 onClick=expand() id='expand' class="expand">
       展开<img src="./down_arrow.png" style="width: 20px;height: 20px;padding-bottom: 3px;">
-    </h1>
+    </h1> -->
     <div style="height: 20px;"></div>
     <div id="third_party" class='link'>
 
     </div>
   </div>
+
+  <img src="" alt="" onclick="" tar>
 
   <div class="modal fade" id="create-modal" tabindex="-1">
     <div class="modal-dialog">
@@ -228,9 +230,9 @@
       str = "";
 
       for (var i = 0; i < resourceList.length; ++i) {
-        str += "<img src=" + iconList[i] + " class='item'></img>";
+        str += "<a href = " + resourceList[i] + " target='_blank'><img src=" + iconList[i] + " class='item'></img></a>";
         str += "<div style='width: 20px; display: inline-block;'></div>";
-        str += "<a href= " + resourceList[i] + " target='_blank'>" + nameList[i] + "<br>http://zxcs.me/</a>";
+        str += "<a href = " + resourceList[i] + " target='_blank'>" + nameList[i] + "<br>http://zxcs.me/</a>";
         str += "<br><br>";
       }
       // console.log(str);
