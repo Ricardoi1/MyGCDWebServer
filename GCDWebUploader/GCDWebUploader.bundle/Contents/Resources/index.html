@@ -103,7 +103,7 @@
   </div>
 
   <div class="right_container" style="display: inline-block;">
-    <h1 class='title'>相关资源网站</h1>
+    <h1 id='resource' class='title'>相关资源网站</h1>
     <div style="width: 100px;display: inline-block;"></div>
     <!-- <h1 onClick=expand() id='expand' class="expand">
       展开<img src="./down_arrow.png" style="width: 20px;height: 20px;padding-bottom: 3px;">
@@ -223,35 +223,43 @@
   </script>
 
   <script>
-    var resourceList = ['https://zlib.shop/', 'http://zxcs.me/', 'http://www.ijjxs.com/', 'https://www.shudan.vip/', 'https://www.iyd.wang/', 'https://xmsoushu.com/#/', 'https://www.jiumodiary.com/', 'http://www.txtnovel.top/', 'https://www.werebook.com/', 'https://ebook2.lorefree.com/', 'https://kgbook.com/'];
-    var nameList = ['Zlibrary', '知轩藏书', '久久小说', '每日书单', '爱悦读', '熊猫搜索', '鸠摩搜索', '书香门第', '书堆阅读', 'lorefree', '苦瓜书盘'];
-    var iconList = ['./icon_placeholder.png', 'http://zxcs.me/favicon.ico', 'http://www.ijjxs.com/favicon.ico', './icon_placeholder.png', 'http://www.iyd.wang/wp-content/uploads/2020/02/lpgo1.png', 'https://xmsoushu.com/img/logo1.b01b019c.png', 'https://www2.jiumodiary.com/images/front/eleps.png', 'http://www.txtnovel.top/favicon.ico', 'https://www.werebook.com/wp-includes/images/w-logo-blue-white-bg.png', 'https://ebook2.lorefree.com/favicon.ico', './icon_placeholder.png'];
-    window.onload = function () {
-      str = "";
+    var showResource = "%showResource%";
+    console.log(showResource)
+    if (showResource == "show") {
+      var resourceList = ['https://zlib.shop/', 'http://zxcs.me/', 'http://www.ijjxs.com/', 'https://www.shudan.vip/', 'https://www.iyd.wang/', 'https://xmsoushu.com/#/', 'https://www.jiumodiary.com/', 'http://www.txtnovel.top/', 'https://www.werebook.com/', 'https://ebook2.lorefree.com/', 'https://kgbook.com/'];
+      var nameList = ['Zlibrary', '知轩藏书', '久久小说', '每日书单', '爱悦读', '熊猫搜索', '鸠摩搜索', '书香门第', '书堆阅读', 'lorefree', '苦瓜书盘'];
+      var iconList = ['./icon_placeholder.png', 'http://zxcs.me/favicon.ico', 'http://www.ijjxs.com/favicon.ico', './icon_placeholder.png', 'http://www.iyd.wang/wp-content/uploads/2020/02/lpgo1.png', 'https://xmsoushu.com/img/logo1.b01b019c.png', 'https://www2.jiumodiary.com/images/front/eleps.png', 'http://www.txtnovel.top/favicon.ico', 'https://www.werebook.com/wp-includes/images/w-logo-blue-white-bg.png', 'https://ebook2.lorefree.com/favicon.ico', './icon_placeholder.png'];
+      window.onload = function () {
+        str = "";
 
-      for (var i = 0; i < resourceList.length; ++i) {
-        str += "<a href = " + resourceList[i] + " target='_blank'><img src=" + iconList[i] + " class='item'></img></a>";
-        str += "<div style='width: 20px; display: inline-block;'></div>";
-        str += "<a href = " + resourceList[i] + " target='_blank'>" + nameList[i] + "<br>http://zxcs.me/</a>";
-        str += "<br><br>";
-      }
-      // console.log(str);
-      // 获取元素，并修改
-      oUl = document.getElementById('third_party');
-      oUl.innerHTML = str;
-    }
-
-    function expand() {
-      if (document.getElementById('third_party').style.height == "470px") {
-        document.getElementById('third_party').style.height = "1000px";
-        document.getElementById('expand').innerHTML = "收起<img src='./up_arrow.png' style='width: 20px;height: 20px;padding-bottom: 3px;'>";
-      } else {
-        document.getElementById('third_party').style.height = "470px";
-        document.getElementById('expand').innerHTML =
-          "展开<img src='./down_arrow.png' style='width: 20px;height: 20px;padding-bottom: 3px;'>";
+        for (var i = 0; i < resourceList.length; ++i) {
+          str += "<a href = " + resourceList[i] + " target='_blank'><img src=" + iconList[i] + " class='item'></img></a>";
+          str += "<div style='width: 20px; display: inline-block;'></div>";
+          str += "<a href = " + resourceList[i] + " target='_blank'>" + nameList[i] + "<br>http://zxcs.me/</a>";
+          str += "<br><br>";
+        }
+        // console.log(str);
+        // 获取元素，并修改
+        oUl = document.getElementById('third_party');
+        oUl.innerHTML = str;
       }
 
+      function expand() {
+        if (document.getElementById('third_party').style.height == "470px") {
+          document.getElementById('third_party').style.height = "1000px";
+          document.getElementById('expand').innerHTML = "收起<img src='./up_arrow.png' style='width: 20px;height: 20px;padding-bottom: 3px;'>";
+        } else {
+          document.getElementById('third_party').style.height = "470px";
+          document.getElementById('expand').innerHTML =
+            "展开<img src='./down_arrow.png' style='width: 20px;height: 20px;padding-bottom: 3px;'>";
+        }
+
+      }
+    } else {
+      o = document.getElementById('resource');
+      o.innerHTML = "";
     }
+
   </script>
 
 </body>

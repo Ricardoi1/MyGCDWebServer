@@ -153,6 +153,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy) NSString* footer;
 
+
+/**
+ *  show or hide
+ */
+@property(nonatomic,copy) NSString* showResource;
+
+
 /**
  *  This method is the designated initializer for the class.
  */
