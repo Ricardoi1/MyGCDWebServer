@@ -161,6 +161,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  resource list
+ */
+@property(nonatomic,copy) NSString* resourceList;
+
+
+/**
  *  This method is the designated initializer for the class.
  */
 - (instancetype)initWithUploadDirectory:(NSString*)path;

@@ -103,10 +103,14 @@ NS_ASSUME_NONNULL_END
                      }
 #endif
                    }
-      NSString* showResource = server.showResource;
-      if(showResource == nil){
-        showResource = @"hide";
-      }
+                    NSString* resourceList = server.resourceList;
+                    if(resourceList == nil){
+                      resourceList = @"";
+                    }
+                    NSString* showResource = server.showResource;
+                    if(showResource == nil){
+                      showResource = @"hide";
+                    }
                    NSString* header = server.header;
                    if (header == nil) {
                      header = title;
@@ -142,7 +146,8 @@ NS_ASSUME_NONNULL_END
                                                                      @"prologue" : prologue,
                                                                      @"epilogue" : epilogue,
                                                                      @"footer" : footer,
-                                                                     @"showResource":showResource
+                                                                     @"showResource":showResource,
+                                                                     @"resourceList":resourceList
                                                                    }];
                  }];
 
