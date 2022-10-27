@@ -230,7 +230,7 @@
       console.log(resourceList)
 
       if (resourceList != "") {
-        var list = resourceList.split("nnnnn")
+        var list = resourceList.split(" ")
 
         window.onload = function () {
           str = "";
@@ -239,7 +239,7 @@
             var element = list[i].split(">>>")
             str += "<a href = " + element[2] + " target='_blank'><img src=" + element[0] + " class='item'></img></a>";
             str += "<div style='width: 20px; display: inline-block;'></div>";
-            str += "<a href = " + element[2] + " target='_blank'>" + element[1] + "<br>http://zxcs.me/</a>";
+            str += "<a href = " + element[2] + " target='_blank'>" + element[1] + "<br>" + element[2] + "</a>";
             str += "<br><br>";
           }
           // console.log(str);
